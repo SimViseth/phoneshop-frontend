@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { BrandService } from '../../service/brand.service';
 
 @Component({
   selector: 'app-brand',
@@ -10,7 +11,7 @@ import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 export class BrandComponent implements OnInit {
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private brandService: BrandService) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -18,5 +19,7 @@ export class BrandComponent implements OnInit {
     });
   }
 
-  createBrand() {}
+  createBrand() {
+    console.log(this.form.value);
+  }
 }
